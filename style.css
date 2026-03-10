@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Warna unik: Deep Teal ke Warm Taupe */
+    background: linear-gradient(135deg, #1f5e6b 0%, #8b6f68 100%);
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(35, 45, 55, 0.95); /* Dark slate */
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e6b89c; /* Peach */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #d4c2b5; /* Warm gray */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #e6b89c;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 5% 2rem 5%;
+}
+
+.container {
+    background: rgba(250, 245, 240, 0.95); /* Cream */
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(25, 55, 60, 0.4);
+    display: flex;
+    max-width: 1200px;
+    overflow: hidden;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Left Section with Photo */
+.left {
+    flex: 1;
+    background: linear-gradient(135deg, #2c5f6b 0%, #9a7b6b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek Neon pada Background Foto */
+.left::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(230, 184, 156, 0.3) 0%, transparent 70%);
+    animation: neonPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.left img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(230, 184, 156, 0.4);
+    box-shadow: 0 10px 30px rgba(25, 55, 60, 0.3);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Efek Hover pada Foto */
+.left img:hover {
+    transform: scale(1.1) rotate(3deg);
+    border-color: #e6b89c;
+    box-shadow: 
+        0 20px 40px rgba(25, 55, 60, 0.4),
+        0 0 30px rgba(44, 95, 107, 0.8),
+        0 0 60px rgba(154, 123, 107, 0.6);
+}
+
+/* Right Section */
+.right {
+    flex: 1.5;
+    padding: 3rem;
+}
+
+/* Efek Neon pada Judul */
+.right h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2a484f; /* Deep teal */
+    text-shadow: 0 0 10px rgba(230, 184, 156, 0.5);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(230, 184, 156, 0.5);
+    }
+    50% {
+        text-shadow: 
+            0 0 20px rgba(230, 184, 156, 0.8),
+            0 0 40px rgba(44, 95, 107, 0.6),
+            0 0 60px rgba(154, 123, 107, 0.4);
+    }
+}
+
+.right h1 span {
+    color: #c17b5e; /* Terracotta */
+    position: relative;
+    display: inline-block;
+}
+
+.right h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #c17b5e, #5f7e85);
+    border-radius: 2px;
+    animation: underlinePulse 2s ease-in-out infinite;
+}
+
+@keyframes underlinePulse {
+    0%, 100% {
+        width: 100%;
+        opacity: 0.5;
+    }
+    50% {
+        width: 120%;
+        opacity: 1;
+        box-shadow: 0 0 20px #c17b5e;
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #5f7e85; /* Muted teal */
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.right p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #4d5d5f; /* Grayish teal */
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #c17b5e 0%, #5f7e85 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(193, 123, 94, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(193, 123, 94, 0.6);
+}
+
+/* Profile Section (3 gambar di bawah) */
+.profile-section {
+    padding: 3rem 5% 5rem 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container {
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(250, 245, 240, 0.9);
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    box-shadow: 0 20px 50px rgba(25, 55, 60, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(230, 184, 156, 0.3);
+    animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2a484f;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #c17b5e, #5f7e85, #e6b89c);
+    border-radius: 2px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 1.5rem 1rem 2rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(230, 184, 156, 0.3);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: #e6b89c;
+    box-shadow: 0 20px 40px rgba(44, 95, 107, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.photo-frame {
+    width: 300px;
+    height: 450px;
+    margin: 0 auto 1.5rem;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 4px solid #c17b5e;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.photo-card:hover .photo-frame {
+    border-color: #e6b89c;
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(193, 123, 94, 0.4);
+}
+
+.slot-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.photo-card:hover .slot-image {
+    transform: scale(1.1);
+}
+
+.photo-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2a484f;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(230, 184, 156, 0.2);
+    border-radius: 30px;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .left img {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .right h1 {
+        font-size: 2.5rem;
+    }
+    
+    .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .photo-frame {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .profile-title {
+        font-size: 2rem;
+    }
+}
